@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ds2_java.HelloController">
+   <MenuBar>
+     <menus>
+       <Menu fx:id="File" mnemonicParsing="false" text="File">
+         <items>
+               <MenuItem fx:id="BarChart" mnemonicParsing="false" onAction="#handleShowBarChart" text="BarChart" />
+           <MenuItem fx:id="Close" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+         </items>
+       </Menu>
+       <Menu fx:id="Edit" mnemonicParsing="false" text="Edit">
+         <items>
+           <MenuItem fx:id="UpdateData" mnemonicParsing="false" text="Delete" />
+         </items>
+       </Menu>
+       <Menu fx:id="Help" mnemonicParsing="false" text="Help">
+         <items>
+           <MenuItem fx:id="About" mnemonicParsing="false" text="About" />
+         </items>
+       </Menu>
+     </menus>
+   </MenuBar>
+   <Label fx:id="exception" visible="false" />
+
+
+    <GridPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="286.0" prefWidth="461.0">
+
+        <Label text="User Id:" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin></Label>
+        <TextField fx:id="Userid" prefHeight="28.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="First Name:" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin></Label>
+        <TextField fx:id="firstNameField" prefHeight="22.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="Last Name:" GridPane.rowIndex="5">
+         <padding>
+            <Insets left="5.0" />
+         </padding></Label>
+        <TextField fx:id="lastNameField" prefHeight="26.0" prefWidth="174.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label text="Date of Birth:" GridPane.rowIndex="6">
+         <padding>
+            <Insets left="5.0" />
+         </padding></Label>
+        <TextField fx:id="dateofbirthField" prefHeight="42.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Label text="Email:" GridPane.rowIndex="8">
+         <padding>
+            <Insets left="5.0" />
+         </padding></Label>
+        <TextField fx:id="emailField" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+   
+          <Label prefHeight="26.0" prefWidth="153.0" text="Add/Edit User">
+           <font>
+               <Font size="16.0" />
+           </font>
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin>
+       </Label>
+      <HBox prefHeight="25.0" prefWidth="137.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+         <children>
+            <Button fx:id="AddButton" onAction="#onAddUser" prefHeight="25.0" prefWidth="63.0" text="Add" />
+            <Button fx:id="EditButton" layoutX="10.0" layoutY="10.0" onAction="#onEditUser" prefHeight="25.0" prefWidth="63.0" text="Edit">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label text="Courses" GridPane.rowIndex="9">
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin></Label>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+         <children>
+            <VBox prefHeight="334.0" prefWidth="139.0">
+               <children>
+                  <CheckBox fx:id="Java" mnemonicParsing="false" onAction="#CheckCourse" prefHeight="24.0" prefWidth="120.0" text="Java" />
+                  <CheckBox fx:id="DB" mnemonicParsing="false" onAction="#CheckCourse" prefHeight="27.0" prefWidth="120.0" text="Data Base" />
+                  <CheckBox fx:id="Conception" mnemonicParsing="false" onAction="#CheckCourse" prefHeight="23.0" prefWidth="120.0" text="Conception" />
+                  <CheckBox fx:id="Web" mnemonicParsing="false" onAction="#CheckCourse" prefHeight="26.0" prefWidth="120.0" text="Web" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="JavaField" promptText="Score" />
+                  <TextField fx:id="DBField" layoutX="10.0" layoutY="10.0" promptText="Score" />
+                  <TextField fx:id="ConceptionField" layoutX="10.0" layoutY="10.0" promptText="Score" />
+                  <TextField fx:id="WebField" layoutX="10.0" layoutY="35.0" promptText="Score" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label prefHeight="25.0" prefWidth="108.0" text="Delete User" GridPane.columnIndex="2">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label text="User Id:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="Userid1" prefHeight="26.0" prefWidth="84.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin>
+      </TextField>
+      <Button fx:id="DeleteUser" onAction="#onDeleteUser" prefHeight="26.0" prefWidth="70.0" text="Delete" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <StackPane fx:id="nombreParticipantsTotal" prefHeight="95.0" prefWidth="98.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </children>
+      </StackPane>
+
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints maxWidth="144.59995117187498" minWidth="97.39999999999998" prefWidth="97.39999999999998" />
+         <ColumnConstraints maxWidth="108.60000000000002" minWidth="10.0" prefWidth="108.60000000000002" />
+         <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+         <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints maxHeight="51.19999999999999" minHeight="30.400003051757807" prefHeight="51.19999999999999" />
+         <RowConstraints maxHeight="51.19999999999999" minHeight="30.400003051757807" prefHeight="51.19999999999999" />
+         <RowConstraints maxHeight="20.799996948242182" minHeight="0.0" prefHeight="0.0" />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+   <HBox prefHeight="34.0" prefWidth="463.0">
+      <children>
+         <BorderPane fx:id="borderPane" prefHeight="34.0" prefWidth="482.0" />
+      </children>
+   </HBox>
+   <HBox prefHeight="34.0" prefWidth="483.0">
+      <children>
+      
+                <Label prefHeight="26.0" prefWidth="162.0" text="Users">
+              <font>
+                  <Font size="16.0" />
+              </font>
+            <padding>
+               <Insets left="5.0" />
+            </padding>
+          </Label>
+         <Label prefHeight="26.0" prefWidth="144.0" text="Search Bar">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+         </Label>
+         <TextField fx:id="searchBar" prefHeight="26.0" prefWidth="198.0">
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </TextField>
+      </children>
+   </HBox>
+   <Label fx:id="UsersNumber" prefHeight="17.0" prefWidth="189.0" />
+
+    <TableView fx:id="userTable" prefHeight="199.0" prefWidth="483.0">
+        <columns>
+            <TableColumn text="id">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="First Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="firstName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Last Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="lastName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Date of Birth">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dateofbirth" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Email">
+                <cellValueFactory>
+                    <PropertyValueFactory property="email" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+
+</VBox>
